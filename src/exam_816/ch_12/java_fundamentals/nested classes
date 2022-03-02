@@ -1,0 +1,43 @@
+A nested class is a class that is defined within another class. A nested class
+can come in one of four flavors.
+ - Inner class: A non‐ static type defined at the member level of a class
+ - Static nested class: A static type defined at the member level of a class
+ - Local class: A class defined within a method body
+ - Anonymous class: A special case of a local class that does not have a name
+
+1. Inner classes
+ - Can be declared public, protected, package‐private (default), or private
+ - Can extend any class and implement interfaces
+ - Can be marked abstract or final
+ - Cannot declare static fields or methods, except for static final fields
+ - Can access members of the outer class including private members
+
+2. Static nested classes
+A static nested class is a static type defined at the member level. Unlike an inner class,
+a static nested class can be instantiated without an instance of the enclosing class. The trade‐off,
+though, is it can't access instance variables or methods in the outer class directly. It can be done but
+requires an explicit reference to an outer class variable.
+
+In other words, it is like a top‐level class except for the following:
+ - The nesting creates a namespace because the enclosing class name must be used to refer to it.
+ - It can be made private or use one of the other access modifiers to encapsulate it.
+ - The enclosing class can refer to the fields and methods of the static nested class.
+
+3. Local classes
+A local class is a nested class defined within a method. Like local variables, a local class declaration does not
+exist until the method is invoked, and it goes out of scope when the method returns. This means you can create
+instances only from within the method. Those instances can still be returned from the method.
+
+Local classes have the following properties:
+ - They do not have an access modifier.
+ - They cannot be declared static and cannot declare static fields or methods, except for static final fields.
+ - They have access to all fields and methods of the enclosing class (when defined in an instance method).
+ - They can access local variables if the variables are final or effectively final.
+
+4. Anonymous classes
+An anonymous class is a specialized form of a local class that does not have a name. It is declared and instantiated
+all in one statement using the new keyword, a type name with parentheses, and a set of braces {}.
+Anonymous classes are required to extend an existing class or implement an existing interface. They are useful
+when you have a short implementation that will not be used anywhere else.
+You can even define anonymous classes outside a method body.
+

@@ -1,0 +1,12 @@
+Data type   Size in bits        Range of values
+
+byte        8           -2^7   to  2^7-1    i.e -128 to 127
+char        16          0      to  2^16-1   i.e 0 to 65.535
+short       16          -2^15  to  2^15-1   i.e -32.768 to 32.767
+int         32          -2^31  to  2^31-1
+long        64          -2^63  to  2^63-1
+float       32
+double      64
+boolean     1           true or false
+
+

@@ -1,0 +1,22 @@
+
+    // adds the parameter to the StringBuilder and returns a reference to the current StringBuilder.
+    StringBuilder append(String str) // overloaded
+
+    charAt(), indexOf(), length(), and substring() // same as String class
+
+    // adds characters to the StringBuilder at the requested index and returns a reference to the current StringBuilder.
+    // throws StringIndexOutOfBoundsException if offset out of bounds
+    StringBuilder insert(int offset, String str) // overloaded
+
+    // removes characters from the sequence and returns a reference to the current StringBuilder.
+    // throws StringIndexOutOfBoundsException
+    StringBuilder delete(int startIndex, int endIndex)
+    StringBuilder deleteCharAt(int index)
+
+    // Both returns a reference to the current StringBuilder.
+    StringBuilder replace(int startIndex, int endIndex, String newString)
+    StringBuilder reverse()
+
+    String toString()
+
+    StringBuilder does not override equals() method from Object class

@@ -1,0 +1,46 @@
+@Target
+Many annotation declarations include @Target annotation, which limits the types the annotation can be applied to.
+More specifically, the @Target annotation takes an array of ElementType enum values as its value() element.
+
+Values for the @Target annotation
+ElementType         Applies to
+value
+
+TYPE                Classes, interfaces, enums, annotations
+FIELD               Instance and static variables, enum values
+METHOD              Method declarations
+PARAMETER           Constructor, method, and lambda parameters
+CONSTRUCTOR         Constructor declarations
+LOCAL_VARIABLE      Local variables
+ANNOTATION_TYPE     Annotations
+PACKAGE             Packages declared in package‐info.java
+TYPE_PARAMETER      Parameterized types, generic declarations
+TYPE_USE            Able to be applied anywhere there is a Java type declared or used
+MODULE              Modules
+
+@Retention
+Annotations may be discarded by the compiler or at runtime. We say “may,” because we can actually specify how they are
+handled using the @Retention annotation. This annotation takes a value() of the enum RetentionPolicy.
+
+Values for the @Retention annotation
+RetentionPolicy value       Description
+
+SOURCE                  Used only in the source file, discarded by the compiler
+CLASS                   Stored in the .class file but not available at runtime (default compiler behavior)
+RUNTIME                 Stored in the .class file and available at runtime
+
+@Documented
+If present, then the generated Javadoc will include annotation information defined on Java types.
+Because it is a marker annotation, it doesn't take any values.
+
+@Inherited
+When this annotation is applied to a class, subclasses will inherit the annotation information found in the parent class.
+
+@Repeatable
+The @Repeatable annotation is used when you want to specify an annotation more than once on a type.
+Generally, you use repeatable annotations when you want to apply the same annotation with different values.
+
+ - The repeatable annotation must be declared with @Repeatable and contain
+    a value that refers to the containing type annotation.
+ - The containing type annotation must include an element named value(),
+    which is a primitive array of the repeatable annotation type.

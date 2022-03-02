@@ -1,0 +1,73 @@
+https://github.com/boyarsky/sybex-1Z0-815-chapter-11
+
+ -- The module-info file must be in the root directory of your module. Regular Java classes should be in packages.
+ -- The module-info file must use the keyword module instead of class, interface, or enum.
+ -- The module name follows the naming rules for package names. It often includes periods (.) in its name.
+    Regular class and package names are not allowed to have dashes (-). Module names follow the same rule.
+
+Options you need to know for using modules with javac:
+Use for                         Abbreviation    Long form
+Directory for class files       -d <dir>        n/a
+Module path                     -p <path>       --module-path <path>
+
+running module example:
+java --module-path mods --module book.module/com.sybex.OCP
+     |  location of   |          | module |  | package |
+     |    modules     |          | name   |  |  name   |
+
+Options you need to know for using modules with java:
+Use for         Abbreviation    Long form
+Module name     -m <name>       --module <name>
+Module path     -p <path>       --module-path <path>
+
+packaging module example:
+    jar -cvf mods/zoo.animal.feeding.jar -C feeding/ .
+this command packages everything under the feeding directory and storing it in a JAR file
+named zoo.animal.feeding.jar under the mods folder.
+
+exports keyword     - is used to indicate that a module intends for those packages to be used by Java code outside the module.
+requires statement  - specifies that a module is needed.
+requires transitive - moduleName, which means that any module that requires this module will also depend on moduleName.
+provides keyword    - specifies that a class provides an implementation of a service.
+uses keyword        - specifies that a module is relying on a service.
+
+Describing modules. Two ways. Example:
+    java -p mods -d zoo.animal.feeding
+    java -p mods --describe-module zoo.animal.feeding
+
+java.base module is automatically added as a dependency to all modules.
+
+qualified exports   - is the full name of exporting to a specific module.
+contains            - means that there is a package in the module that is not exported at all.
+
+Listing modules:
+    java --list-modules // does not run the program
+
+Showing module resolution:
+    java --show-module-resolution -p feeding -m zoo.animal.feeding/zoo.animal.feeding.Task // more information
+
+The JAR command: (equivalent commands)
+    jar -f mods/zoo.animal.feeding.jar -d
+    jar --file mods/zoo.animal.feeding.jar --describe-module
+
+THE JDEPS COMMAND
+The jdeps command gives you information about dependencies within a module. Unlike describing a module, it looks at the
+code in addition to the module-info file. This tells you what dependencies are actually used rather than simply declared.
+    jdeps -s mods/zoo.animal.feeding.jar
+    jdeps -summary mods/zoo.animal.feeding.jar
+Without the summary option we get the long form.
+
+THE JMOD COMMAND
+JMOD files are recommended only when you have native libraries or something that can’t go inside a JAR file.
+
+Modes using jmod
+Operation   Description
+====================================================================
+create      Creates a JMOD file.
+extract     Extracts all files from the JMOD. Works like unzipping.
+describe    Prints the module details such as requires.
+list        Lists all files in the JMOD file.
+hash        Shows a long string that goes with the file
+
+
+

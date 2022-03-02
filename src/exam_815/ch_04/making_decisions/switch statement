@@ -1,0 +1,35 @@
+Switch data types:
+    -primitive numeric types (byte, char, short, int)
+    -their wrapper classes (Byte, Character, Short, Integer)
+    -enum (Java 5)
+    -String (Java 7)
+    -var (Java 10) (if the type a var resolves to is one of the types supported by a switch statement)
+
+Note: boolean, long, float, and double are excluded from switch statements,
+      as are their associated Boolean, Long, Float, and Double classes.
+
+Acceptable case values:
+    The values in each case statement must be compile-time constant values of the same data type as the switch value.
+    This means you can use only literals, enum constants, or final constant variables of the same datatype.
+    By final constant, we mean that the variable must be marked with the final modifier and initialized
+    with a literal value in the same expression in which it is declared. For example, you can’t have a case
+    statement value that requires executing a method at runtime, even if that method always returns the same value.
+    For these reasons, only the first and last case statements in the following example compiles:
+
+    final int getCookies() { return 4; }
+    void feedAnimals() {
+        final int bananas = 1;
+        int apples = 2;
+        int numberOfAnimals = 3;
+        final int cookies = getCookies();
+
+        switch (numberOfAnimals) {
+            case bananas:
+            case apples: // DOES NOT COMPILES
+            case getCookies(): // DOES NOT COMPILE
+            case cookies : // DOES NOT COMPILE
+            case 3 * 5 :
+        }
+    }
+
+    - Switch statements support numeric promotion that does not require an explicit cast.

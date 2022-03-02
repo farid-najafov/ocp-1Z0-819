@@ -1,0 +1,30 @@
+Method reference is the shorthand syntax for a lambda expression that executes just ONE method.
+They can be used only to replace a single-method lambda expression
+
+There are four formats for method references:
+ - Static methods
+    Consumer<List<Integer>> methodRef = Collections::sort;
+    Consumer<List<Integer>> lambda = x -> Collections.sort(x);
+
+ - Instance methods on a particular instance
+    var str = "abc";
+    Predicate<String> methodRef = str::startsWith;
+    Predicate<String> lambda = s -> str.startsWith(s);
+
+    var random = new Random();
+    Supplier<Integer> methodRef = random::nextInt;
+    Supplier<Integer> lambda = () -> random.nextInt();
+
+ - Instance methods on a parameter to be determined at runtime
+    Predicate<String> methodRef = String::isEmpty;
+    Predicate<String> lambda = s -> s.isEmpty();
+
+    BiPredicate<String, String> methodRef = String::startsWith;
+    BiPredicate<String, String> lambda = (s, p) -> s.startsWith(p);
+
+ - Constructors
+    Supplier<List<String>> methodRef = ArrayList::new;
+    Supplier<List<String>> lambda = () -> new ArrayList();
+
+    Function<Integer, List<String>> methodRef = ArrayList::new;
+    Function<Integer, List<String>> lambda = x -> new ArrayList(x);

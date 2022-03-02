@@ -1,0 +1,7 @@
+Inheritance is the process by which a subclass automatically includes any public or protected members of the class,
+including primitives, objects, or methods, defined in the parent class. When one class inherits from a parent class,
+all public and protected members are automatically available as part of the child class.
+Package-private members are available if the child class is in the same package as the parent class.
+Private members are restricted to the class they are defined in and are never available via inheritance.
+
+https://ocpj8.javastudyguide.com/

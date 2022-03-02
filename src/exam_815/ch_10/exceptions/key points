@@ -1,0 +1,32 @@
+Key Points
+In Java, there are three types of exception
+    - java.lang.Exception
+    - java.lang.RuntimeException
+    - java.lang.Error
+RuntimeException and its subclasses are not required to be caught since they're not expected all the time.
+They're also called unchecked. Exception and its subclasses (except for RuntimeException) are known as
+checked exceptions because the compiler has to check if they are caught at some point by a try-catch statement.
+If an exception can be caught in more than one block, the exception will be caught in the first block defined.
+However, we have to respect the hierarchy of the classes, if a superclass is defined before a subclass,
+a compile-time error is generated. If the code that throws a checked exception is not inside a try-catch block,
+the method that contains that code must declare the exception in the throws clause. In this case,
+the caller of the method must either catch the exception or also declare it in the throws clause and so on
+until the main method of the program is reached. The multi-catch block allows us to catch two or more
+unrelated exceptions with a single catch block:
+
+    try {
+        // ...
+    } catch(Exception1 | Exception2 e) {
+        // ...
+    }
+
+The finally block is ALWAYS executed, even when an exception is caught or when either the try or catch block
+contains a return statement. In a try-with-resources block, one or more resources are declared so they can be
+closed automatically after the try block ends just by implementing java.lang.AutoCloseable or java.io.Closeable:
+
+    try (Resource r = new Resource()) {
+        //...
+    } catch(Exception e) { }
+
+When using a try-with-resources block, catch and finally are optional. You can create your own exceptions just by
+extending from java.lang.Exception (for checked exceptions) or java.lang.RuntimeException (for unchecked exceptions).

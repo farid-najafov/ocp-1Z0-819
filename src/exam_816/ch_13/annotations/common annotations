@@ -1,0 +1,30 @@
+@Override
+@Override is a marker annotation that is used to indicate a method is overriding an inherited method,
+whether it be inherited from an interface or parent class.
+
+@FunctionalInterface
+The @FunctionalInterface marker annotation can be applied to any valid functional interface.
+
+@Deprecated
+The @Deprecated annotation is similar to a marker annotation, in that it can be used without any values,
+but it includes some optional elements. The @Deprecated annotation can be applied to nearly any Java declaration,
+such as classes, methods, or variables.
+
+@SuppressWarnings
+Applying this annotation to a class, method, or type basically tells the compiler, “I know what I am doing;
+do not warn me about this.” Unlike the previous annotations, it requires a String[] value() parameter.
+
+Common @SuppressWarnings values
+Value                   Description
+
+"deprecation"           Ignore warnings related to types or methods marked with the @Deprecated annotation.
+"unchecked"             Ignore warnings related to the use of raw types, such as List instead of List<String>.
+
+@SafeVarargs
+The @SafeVarargs marker annotation indicates that a method does not perform any potential unsafe operations
+on its varargs parameter. It can be applied only to constructors or methods that cannot be overridden
+(aka methods marked private, static, or final). The annotation is used to indicate to other developers
+that your method does not perform any unsafe operations. It basically tells other developers,
+“Don't worry about the varargs parameter; I promise this method won't do anything bad with it!”.
+It also suppresses unchecked compiler warnings for the varargs parameter. The annotation can be applied only
+to methods that contain a varargs parameter and are not able to be overridden.

@@ -1,0 +1,44 @@
+Running programs from command line:
+
+compiles
+    javac Zoo.java
+
+executes
+    java exam_815.ch_01/welcome_to_java/Zoo
+
+Note: if package declaration exists inside java file, full path must be included in cmd line
+and must be called outside the package. Otherwise must be run with just file name from inside package.
+Can import code in any available Java library
+
+========================================================================================================================
+Running single-file source-code programs in one line:
+    java Zoo.java                               // from within the package
+    java exam_815/ch_01/welcome_to_java/Zoo     // from the directory above exam_815/ch_01/welcome_to_java
+
+Above note doesn't apply single line runner.
+Code compiles only in memory and doesn't create .class file.
+Can import code that came with the JDK
+
+========================================================================================================================
+By default javac command places compiled classes under the same directory.
+-d option (case sensitive) specifies target directory.
+
+    javac -d . Zoo.java   // puts .class file under newly created ./exam_815/ch_01/welcome_to_java directory
+
+Note: if package declaration exists it creates those directories under target directory
+
+========================================================================================================================
+classpath options
+
+    javac -cp <classpath> ClassName.java
+    java -cp <classpath> ClassName
+
+    javac -classpath <classpath> ClassName.java
+    java -classpath <classpath> ClassName
+
+    javac --class-path <classpath> ClassName.java
+    java --class-path <classpath> ClassName
+
+Note: when we talk about the location of a class, it is not the location of the class file that you are interested in
+but the location of the directory structure of the class file.
+

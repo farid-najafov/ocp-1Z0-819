@@ -1,0 +1,17 @@
+Hiding Static Methods:
+A hidden method occurs when a child class defines a static method with the same name and signature as an inherited
+static method defined in a parent class. Method hiding is similar but not exactly the same as method overriding.
+The previous four rules for overriding a method must be followed when a method is hidden.
+In addition, a new rule is added for hiding a method:
+    5. The method defined in the child class must be marked as static if it is marked as static in a parent class.
+Put simply, it is method hiding if the two methods are marked static, and method overriding if they are
+not marked static. If one is marked static and the other is not, the class will not compile.
+
+Hiding Variables:
+Java does not allow variables to be overridden. Variables can be hidden, though. A hidden variable occurs
+when a child class defines a variable with the same name as an inherited variable defined in the parent class.
+This creates two distinct copies of the variable within an instance of the child class:
+one instance defined in the parent class and one defined in the child class.
+
+Note: overriding a method replaces the parent method on all reference variables (other than super),
+      whereas hiding a method or variable replaces the member only if a child reference type is used.

@@ -1,0 +1,13 @@
+creating JAR files
+
+    // creates a JAR containing the files in the current directory
+    jar -cvf Zoo.jar .
+    jar --create --verbose --file Zoo.jar .
+
+    // specifies directory
+    jar -cvf Zoo.jar -C ch_01/welcome_to_java .
+
+-c or --create      creates a new JAR file
+-v or --verbose     prints details when working with JAR files
+-f or --file        JAR filename
+-C                  directory containing files to be used to create the JAR

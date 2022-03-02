@@ -1,0 +1,28 @@
+There are three parts to a stream pipeline:
+ - Source: Where the stream comes from
+ - Intermediate operations: Transforms the stream into another one. There can be as few or as many intermediate
+    operations as you'd like. Since streams use lazy evaluation, the intermediate operations do not run until
+    the terminal operation runs.
+ - Terminal operation: Actually produces a result. Since streams can be used only once, the stream is no longer
+    valid after a terminal operation completes.
+
+Terminal stream operations
+Method          What happens for infinite streams       Return value       Reduction
+
+count()         Does not terminate                      long               Yes
+
+min()
+max()           Does not terminate                      Optional<T>         Yes
+
+findAny()
+findFirst()     Terminates                              Optional<T>         No
+
+allMatch()
+anyMatch()
+noneMatch()     Sometimes terminates                    boolean             No
+
+forEach()       Does not terminate                      void                No
+
+reduce()        Does not terminate                      Varies              Yes
+
+collect()       Does not terminate                      Varies              Yes

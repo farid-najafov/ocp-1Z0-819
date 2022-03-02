@@ -1,0 +1,13 @@
+Properties of modules types
+Property                            Named              Automatic       Unnamed
+A ______ module contains a          Yes                No              Ignored if present
+module‐info file?
+
+A ______ module exports which       Those in the       All packages    No packages
+packages to other modules?          module‐info file
+
+A ______ module is readable by      Yes                Yes             No
+other modules on the module path?
+
+A ______ module is readable by      Yes                Yes             Yes
+other JARs on the classpath?

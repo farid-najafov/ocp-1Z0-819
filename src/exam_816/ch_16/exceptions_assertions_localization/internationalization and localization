@@ -1,0 +1,40 @@
+Internationalization is the process of designing your program so it can be adapted. This involves placing strings
+in a properties file and ensuring the proper data formatters are used. Localization means actually supporting
+multiple locales or geographic regions. You can think of a locale as being like a language and country pairing.
+Localization includes translating strings to different languages. It also includes outputting dates and numbers
+in the correct format for that locale.
+
+Loading Properties with Resource Bundles
+A resource bundle contains the locale‐specific objects to be used by a program. It is like a map with keys and values.
+The resource bundle is commonly stored in a properties file. Java doesn't require us to create four different
+resource bundles. If we don't have a country‐specific resource bundle, Java will use a language‐specific one.
+E.g:
+Zoo_en.properties
+hello=Hello
+open=The zoo is open
+Zoo_fr.properties
+hello=Bonjour
+open=Le zoo est ouvert
+
+The filenames match the name of our resource bundle, Zoo. They are then followed by an underscore ( _), target locale,
+and .properties file extension.
+
+    public static void printWelcomeMessage(Locale locale) {
+        var rb = ResourceBundle.getBundle("Zoo", locale);
+        System.out.println(rb.getString("hello") + ", " + rb.getString("open"));
+    }
+
+    public static void main(String[] args) {
+        var us = new Locale("en", "US");
+        var france = new Locale("fr", "FR");
+        printWelcomeMessage(us); // Hello, The zoo is open
+        printWelcomeMessage(france); // Bonjour, Le zoo est ouvert
+    }
+
+Since a resource bundle contains key/value pairs, you can even loop through them to list all of the pairs.
+The ResourceBundle class provides a keySet() method to get a set of all keys.
+        var us = new Locale("en", "US");
+        ResourceBundle rb = ResourceBundle.getBundle("Zoo", us);
+        rb.keySet().stream()
+                .map(k -> k + ": " + rb.getString(k))
+                .forEach(System.out::println);

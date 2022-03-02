@@ -1,0 +1,22 @@
+The purpose of an annotation is to assign metadata attributes to classes, methods, variables, and other Java types.
+
+ - annotations function a lot like interfaces.
+ - annotations establish relationships that make it easier to manage data about our application.
+ - an annotation ascribes custom information on the declaration where it is defined.
+ - annotations are optional metadata and by themselves do not do anything.
+
+An annotation element is an attribute that stores values about the particular usage of an annotation.
+When declaring an annotation, any element without a default value is considered required. The default value of an
+annotation must be a non‐ null constant expression. Null is not permitted as a default value.
+Annotation element must be a primitive type, a String, a Class, an enum, another annotation,
+or an array of any of these types.
+Annotation elements are implicitly abstract and public.
+Annotations can include constant variables that can be accessed by other classes without creating the annotation.
+
+Annotations can be applied to any Java declaration including the following:
+ - Classes, interfaces, enums, and modules
+ - Variables (static, instance, local)
+ - Methods and constructors
+ - Method, constructor, and lambda parameters
+ - Cast expressions
+ - Other annotations

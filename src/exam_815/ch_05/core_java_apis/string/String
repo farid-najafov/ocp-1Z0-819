@@ -1,0 +1,45 @@
+
+    int length();
+
+    // can throw StringIndexOutOfBoundsException
+    char charAt(int index)
+
+    // returns -1 if not found (doesn't throw an exception)
+    int indexOf(int ch)
+    int indexOf(int ch, int fromIndex)
+    int indexOf(String str)
+    int indexOf(String str, int fromIndex)
+
+    // Throws exception if end index out of bounds (not if one past the end of string)
+    String substring(int beginIndex)
+    String substring(int beginIndex, int endIndex)
+
+    String toLowerCase()
+    String toUpperCase()
+
+    boolean equals(Object obj)
+    boolean equalsIgnoreCase(String str)
+
+    boolean startsWith(String prefix)
+    boolean endsWith(String suffix)
+
+    String replace(char oldChar, char newChar)
+    String replace(CharSequence target, CharSequence replacement)
+
+    boolean contains(CharSequence charSeq)
+
+    String trim()
+    String strip()  // Java 11, trim with Unicode support
+    String stripLeading()
+    String stripTrailing()
+
+    // Returns the value from the string pool if it is there, otherwise, it adds the value to the string pool.
+    String intern()
+
+    String overrides equals() method from Object class
+
+    The String Pool
+    The string pool contains literal values and constants that appear in your program.
+    String objects returned from method calls as well as String objects created with new keyword
+    are not compile time constants, so they don't go to the pool.
+

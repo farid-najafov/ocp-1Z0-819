@@ -1,0 +1,20 @@
+Common functional interfaces:
+Supplier<T>             T get() 0
+Consumer<T>             void accept(T)
+BiConsumer<T, U>        void accept(T,U)
+Predicate<T>            boolean test(T)
+BiPredicate<T, U>       boolean test(T,U)
+Function<T, R>          R apply(T)
+BiFunction<T, U, R>     R apply(T,U)
+UnaryOperator<T>        T apply(T)
+BinaryOperator<T>       T apply(T,T)
+
+Convenience methods
+Interface instance      Method return type      Method name     Method parameters
+Consumer                Consumer                andThen()       Consumer
+Function                Function                andThen()       Function
+Function                Function                compose()       Function
+Predicate               Predicate               and()           Predicate
+Predicate               Predicate               negate()        —
+Predicate               Predicate               or()            Predicate
+

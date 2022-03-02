@@ -1,0 +1,33 @@
+The process of replacing all references to generic types with Object is called type erasure.
+https://ocpj8.javastudyguide.com/ch06.html
+
+BOUNDING GENERIC TYPES
+A bounded parameter type is a generic type that specifies a bound for the generic.
+
+Types of bounds:
+Type of bound                  Syntax              Example
+Unbounded wildcard              ?                   List<?> a = new ArrayList<String>();
+Wildcard with an upper bound    ? extends type      List<? extends Exception> a = new ArrayList<RuntimeException>();
+Wildcard with a lower bound     ? super type        List<? super Exception> a = new ArrayList<Object>();
+
+Something interesting happens when we work with upper bounds or unbounded wildcards. The list becomes logically
+immutable and therefore cannot be modified.
+
+Why we need a lower bound                       Method compiles     Can pass a List<String>     Can pass a List<Object>
+public static void addSound(______list) {
+    list.add("quack");
+}
+
+List<?>                                         No (unbounded       Yes                         Yes
+                                                generics are
+                                                immutable)
+
+List<? extends Object>                          No (upper bounded   Yes                         Yes
+                                                generics are
+                                                immutable)
+
+List<Object>                                    Yes                 No (with generics,          Yes
+                                                                    must pass exact
+                                                                    match)
+
+List<? super String>                            Yes                 Yes                         Yes
